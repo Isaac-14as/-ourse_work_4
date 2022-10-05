@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/static/css/header_footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <meta charset="UTF-8">
+    <title>Магазины</title>
+</head>
+<body>
+<div th:insert="~{fragments/header_1 :: #header-container}"></div>
+<div class="re_1" th:insert="~{fragments/header_1 :: #header-bottom}"></div>
+
+<div class="main">
+    <div class="main_information">
+
+        <div class="main_center_menu">
+            <div class="center_menu">
+                1. Центральный
+                <br>
+                просп. имени Петра Столыпина, 43, Саратов (этаж 2)
+                <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/org/detskiy_mir/62391311355/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Детский мир</a><a href="https://yandex.ru/maps/194/saratov/category/children_store/184107252/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Детский магазин в Саратове</a><a href="https://yandex.ru/maps/194/saratov/category/children_shoe_shop/36609242320/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:28px;">Магазин детской обуви в Саратове</a><iframe src="https://yandex.ru/map-widget/v1/-/CCUVVFgo9D" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:insert="~{fragments/header_1 :: #footer-main}"></div>
+</body>
+</html>

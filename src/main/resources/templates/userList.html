@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/static/css/header_footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8">
+    <title>User list</title>
+</head>
+<body>
+
+<div th:insert="~{fragments/header_1 :: #header-container}"></div>
+<div class="re_1" th:insert="~{fragments/header_1 :: #header-bottom}"></div>
+
+<table border="1" align="center">
+    <tr>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Password</td>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.username}">Testname</td>
+        <td th:text="${user.email}">Testmail</td>
+        <td th:text="${user.password}">Testpassword</td>
+    </tr>
+</table>
+<div align="center">
+    <a th:href="@{/users/new}">Добавить пользователя</a>
+</div>
+
+
+<div th:insert="~{fragments/header_1 :: #footer-main}"></div>
+</body>
+</html>

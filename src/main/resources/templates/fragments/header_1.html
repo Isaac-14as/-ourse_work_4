@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+<div id="header-container">
+    <div class="main_background">
+        <div class="wrapper">
+            <div class="header">
+                <div class="main_menu">
+                    <div class="logo">
+                        <a th:href="@{/}"><img class="logo_item" src="/static/img/logo_1.png" alt="Logo"></a>
+                    </div>
+                    <div class="menu">
+                        <div class="menu_left">
+                            <div class="menu_left_item">
+                                Москва
+                            </div>
+                            <div class="menu_left_item"><a href="">+7(927)-128-39-50</a></div>
+                        </div>
+                        <div class="menu_right">
+                            <div class="menu_right_item"><a href="/">Журнал</a></div>
+                            <div class="menu_right_item"><a href="/akcii">Акции</a></div>
+                            <div class="menu_right_item"><a href="/dostav">Доставка</a></div>
+                            <div class="menu_right_item"><a href="/magazine">Магазины</a></div>
+                            <div class="menu_right_item"><a href="/obrs">Обратная связь</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="header-bottom">
+    <div class="menu_bottom">
+        <div class="top">
+            <form class="find" method="get" action="./search.html">
+                <input class="find_item" type="text" onfocus="this.value=''" value="Поиск по товарам" name="query">
+                <div>
+                    <button type="submit_1">Поиск</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="menu_right_main">
+            <div sec:authorize="isAuthenticated()">
+                <a th:href="@{/users/profile}">
+                    <div class="menu_right_main_item">
+                        <img src="/static/img/войти.png" alt="">
+                        <div sec:authentication="principal.username" class="header_item_text">error</div>
+                    </div>
+                </a>
+            </div>
+            <div sec:authorize="!isAuthenticated()">
+                <a th:href="@{/login}">
+                    <div class="menu_right_main_item">
+                        <img src="/static/img/войти.png" alt="">
+                        <div class="header_item_text">Войти</div>
+                    </div>
+                </a>
+            </div>
+            <div sec:authorize="isAuthenticated()">
+                <a th:href="@{/bucket}">
+                    <div class="menu_right_main_item">
+                        <img src="/static/img/корзина.png" alt="">
+                        <div sec:authorize="isAuthenticated()" class="header_item_text">Корзина</div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer_bottom_1">
+        <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER')"><a th:href="@{/products}">Товары</a></div>
+        <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER')"><a th:href="@{/users}">Пользователи</a></div>
+    </div>
+</div>
+
+
+
+
+
+
+<div id="footer-main">
+    <div class="main_footer">
+
+        <div class="news">
+            <div class="news_text">
+                Хочу быть в курсе акций и новинок
+            </div>
+            <div class="news_main">
+                <div class="news_main_item">
+                    <input class="news_main_item_in" type="text" onfocus="this.value=''" value="Мой e-mail">
+                </div>
+                <div class="news_main_item">
+                    <div class="news_main_item_button">
+                        Подписаться
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="news">
+            <div class="news_text">
+                Включить уведомления в браузере
+            </div>
+            <div class="news_main">
+                <div class="news_main_item">
+                    Новости, акции и все самые важные события для вас!
+                </div>
+                <div class="news_main_item">
+                    <div class="news_main_item_button">
+                        Включить
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contacts">
+
+            <div class="main_contacts">
+                <p class="test_item">Контакты</p>
+                <p><a href="">Адреса магазинов</a></p>
+                <p><a href="">+7(927)-128-39-50</a></p>
+                <p>Москва</p>
+                <div class="main_contacts_links">
+                    <a href=""><img src="img/vk.png" alt=""></a>
+                    <a href=""><img src="img/telegram.png" alt=""></a>
+                    <a href=""><img src="img/YOUTUBE.png" alt=""></a>
+                    <a href=""><img src="img/TWITTER.png" alt=""></a>
+                    <a href=""><img src="img/Facebook.png" alt=""></a>
+                </div>
+            </div>
+
+            <div class="menu_contacts">
+                <div class="menu_contacts_item">
+                    <p><a href="">Журнал</a></p>
+                    <p><a href="">Акции</a></p>
+                    <p><a href="">Информация</a></p>
+                    <p><a href="">Доставка</a></p>
+                    <p><a href="">Гарантия</a></p>
+                    <p><a href="">Кредит и рассрочка</a></p>
+
+
+                </div>
+                <div class="menu_contacts_item">
+                    <p><a href="">Сервисные центры</a></p>
+                    <p><a href="">Услуги</a></p>
+                    <p><a href="">Обзоры</a></p>
+                </div>
+                <div class="menu_contacts_item">
+                    <p><a href="">Новости</a></p>
+                    <p><a href="">Клуб</a></p>
+                    <p><a href="">Вакансии</a></p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="bottom_footer">
+            <div class="bottom_footer_line">
+                <p>Курсовая работa</p>
+                <p class="bottom_footer_line_year">2022</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

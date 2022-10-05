@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/static/css/header_footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="/static/css/catalog.css">
+    <meta charset="UTF-8">
+    <title>Product list</title>
+</head>
+<body>
+<div th:insert="~{fragments/header_1 :: #header-container}"></div>
+<div class="re_1" th:insert="~{fragments/header_1 :: #header-bottom}"></div>
+
+<div class="products">
+    <div class="products_main">
+        <div th:each="category : ${categories}" th:if="${category.id} == ${id}" class="products_main_text">
+            <div th:text="${category.title}">Игрушки</div>
+        </div>
+        <div class="products_main_head">
+            <div class="products_main_head_left">
+                <div class="products_main_head_left_box" th:each="product : ${products}"
+                     th:if="${product.category} == ${id}">
+                    <a class="products_main_head_left_box_item"
+                       th:href="@{/products/product_page/{id}(id=${product.id})}">
+                        <img class="center_menu_img" th:src="'/static/image/img_' + ${product.imgId} + '.jpg'" alt="">
+                    </a>
+                    <div class="products_main_head_left_box_item">
+                        <div th:text="${product.title}" class="name">name</div>
+                    </div>
+                    <div class="products_main_head_left_box_item">
+                        <div class="price" th:text="${product.price}">0<span>₽</span></div>
+
+                        <div sec:authorize="isAuthenticated()">
+                            <a th:href="@{/products/{id}/{category_1}/bucket(id=${product.id}, category_1=${product.category})}">
+                                <div class="price_icon"></div>
+                            </a>
+                        </div>
+                        <div sec:authorize="!isAuthenticated()" class="arrange">
+                            <a th:href="@{/login}">Авторизоваться</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="products_main_head_right">
+                <div class="right_item item_text">Фильтры</div>
+                <div class="right_item item_text">Цена, ₽</div>
+                <div class="right_item">
+                    <input type="text" value="0">
+                    <div>-</div>
+                    <input type="text" value="16000">
+                </div>
+                <div class="right_item item_text">Наличие товара</div>
+                <div class="right_item"><input type="checkbox">Доступен самовывоз</div>
+                <div class="right_item"><input type="checkbox">Забрать через 5 минут</div>
+                <div class="right_item item_text_1">Рекомендуемый возраст</div>
+                <div class="right_item"><input type="checkbox">от 10 лет</div>
+                <div class="right_item"><input type="checkbox">от 12 лет</div>
+                <div class="right_item"><input type="checkbox">от 3 лет</div>
+                <div class="right_item"><input type="checkbox">от 4 лет</div>
+                <div class="right_item"><input type="checkbox">от 5 лет</div>
+                <div class="right_item"><input type="checkbox">от 6 лет</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:insert="~{fragments/header_1 :: #footer-main}"></div>
+</body>
+</html>

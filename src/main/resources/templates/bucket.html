@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/static/css/header_footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/static/css/basket.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Source+Sans+Pro:wght@200;400&display=swap"
+          rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+</head>
+<body>
+<div th:insert="~{fragments/header_1 :: #header-container}"></div>
+<div class="re_1" th:insert="~{fragments/header_1 :: #header-bottom}"></div>
+
+<div class="products">
+    <div class="products_main">
+        <div class="products_main_text">
+            Корзина
+        </div>
+        <div class="products_main_head">
+            <div class="products_main_head_right">
+                <div class="right_item item_text">Общая стоимость:</div>
+                <div th:text="${bucket.sum}" class="right_item item_text_3">0</div>
+                <form th:action="@{/bucket}" method="post">
+                    <button id="myBtn" class="arrange" type="submit">Создать заказ</button>
+                </form>
+            </div>
+            <div class="products_main_head_left">
+                <div th:each="detail : ${bucket.bucketDetails}" class="products_main_head_left_box">
+                    <a class="products_main_head_left_box_item"
+                       th:href="@{/products/product_page/{id}(id=${detail.id})}">
+                        <img class="center_menu_img" th:src="'/static/image/img_' + ${detail.imgId} + '.jpg'" alt="">
+                    </a>
+                    <div class="products_main_head_left_box_item">
+                        <div th:text="${detail.title}" class="name">Toy</div>
+                    </div>
+                    <div class="products_main_head_left_box_item">
+                        <p>
+                        <div th:text="${detail.price}" class="price">0</div>
+                        <span>*</span><span th:text="${detail.amount}">0</span>
+                        <div class="price">₽</div>
+                        </p>
+                        <a class="favorites_icon" th:href="@{/products/{id}/remove/bucket(id=${detail.id})}"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:insert="~{fragments/header_1 :: #footer-main}"></div>
+</body>
+</html>

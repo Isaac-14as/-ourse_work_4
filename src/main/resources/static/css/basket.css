@@ -1,0 +1,255 @@
+@charset "UTF-8";
+.products {
+    max-width: 1536px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding-bottom: 20px;
+}
+
+.products_main_text {
+    font-size: 40px;
+}
+
+.products_main_text span {
+    font-size: 20px;
+}
+
+.products_main_head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.products_main_head_left {
+    margin-left: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.products_main_head_left_box {
+    margin-left: 20px;
+    margin-top: 20px;
+    background-color: white;
+    width: 250px;
+    height: 300px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 5px 6px rgba(0, 0, 255, 0.2);
+}
+
+.products_main_head_left_box:hover {
+    box-shadow: 0px 0px 5px 10px rgba(0, 0, 255, 0.2);
+}
+
+.products_main_head_left_box_item {
+    display: flex;
+}
+
+.products_main_head_left_box_item:nth-child(2) {
+    height: 80px;
+}
+
+.products_main_head_left_box_item:nth-child(3) {
+    display: flex;
+    justify-content: space-around;
+}
+
+.favorites_icon {
+    background-image: url("../img/крестик_2.png");
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin-top: 4px;
+    background-repeat: no-repeat;
+}
+
+.favorites_icon:hover {
+    background-image: url("../img/крестик_1.png");
+}
+
+.name {
+    height: 54px;
+}
+
+.price_icon {
+    background-image: url("../img/в_корзина.png");
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    background-repeat: no-repeat;
+}
+
+.price_icon:hover {
+    background-image: url("../img/в_корзина_1.png");
+}
+
+.price {
+    font-size: 30px;
+}
+
+.mark {
+    color: #666666;
+    margin-left: 30px;
+}
+
+.center_menu_img {
+    width: 150px;
+    height: 150px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.products_main_head_right {
+    min-width: 240px;
+    background-color: rgba(221, 253, 255, 0.5);
+    width: 20%;
+    height: 400px;
+}
+
+.right_item:nth-child(2) {
+    margin-bottom: 20px;
+}
+
+.nbr {
+    width: 30%;
+}
+
+.right_item {
+    margin-left: 15px;
+}
+
+.item_text {
+    margin-left: 15px;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.mg {
+    margin-left: 30px;
+}
+
+.item_text_1 {
+    margin-left: 40px;
+}
+
+.item_text_2 {
+    color: #196bb1;
+    transition: 0.3s;
+    margin-left: 40px;
+}
+
+.item_text_2:hover {
+    color: #000;
+    transition: 0.3s;
+}
+
+.item_text_3 {
+    margin-top: 30px;
+    margin-left: 40px;
+    font-size: 25px;
+}
+
+.products_main_head_right .arrange {
+    margin-top: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 2px solid blue;
+    border-radius: 10px;
+    width: 200px;
+    height: 35px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 0.3s;
+}
+
+.products_main_head_right .arrange:hover {
+    color: white;
+    background-color: blue;
+    transition: 0.3s;
+}
+
+.arrange {
+    font-size: 15px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(124, 124, 124, 0.5);
+}
+
+.modal-content {
+    background-color: rgba(221, 253, 255, 0.8);
+    margin: 0 auto;
+    margin-top: 200px;
+    padding: 20px;
+    border: 1px solid blue;
+    width: 30%;
+    height: 300px;
+}
+
+.modal-content .item {
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-content .text_1 {
+    font-size: 20px;
+}
+
+@media (max-width: 1170px) {
+    .products_main_head_left {
+        margin-left: 40px;
+    }
+
+    .products {
+        max-width: 1536px;
+        width: 97%;
+    }
+}
+
+@media (max-width: 770px) {
+    .products_main_head {
+        flex-direction: column;
+    }
+
+    .products_main_head_right {
+        margin: 0 auto;
+    }
+
+    .modal-content {
+
+        width: 80%;
+    }
+
+}
+
+@media (max-width: 400px) {
+    .modal-content .item {
+        width: 100%;
+    }
+
+    .modal-content .item_2 {
+        width: 90%;
+    }
+
+}

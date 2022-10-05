@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/static/css/header_footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <meta charset="UTF-8">
+    <title>Доставка</title>
+</head>
+<body>
+<div th:insert="~{fragments/header_1 :: #header-container}"></div>
+<div class="re_1" th:insert="~{fragments/header_1 :: #header-bottom}"></div>
+
+<div class="main">
+  <div class="main_information">
+
+    <div class="main_center_menu">
+      <div class="center_menu">
+        Доставка внутри МКАД: Бесплатно
+        <br>Доставка за МКАД: +20р/км
+      </div>
+    </div>
+  </div>
+</div>
+
+<div th:insert="~{fragments/header_1 :: #footer-main}"></div>
+</body>
+</html>

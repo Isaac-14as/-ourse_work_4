@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/static/css/header_footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/static/css/product_1.css">
+    <meta charset="UTF-8">
+    <title>Demo Shop</title>
+</head>
+<body>
+<div th:insert="~{fragments/header_1 :: #header-container}"></div>
+<div class="re_1" th:insert="~{fragments/header_1 :: #header-bottom}"></div>
+
+<div class="head_main" th:each="product : ${products}" th:if="${product.id} == ${id}">
+    <div class="main">
+        <div class="left">
+            <img class="img_object" th:src="'/static/image/img_' + ${product.imgId} + '.jpg'" alt="">
+        </div>
+        <div class="right">
+            <div class="box_info">
+                <div th:text="${product.title}" class="box_info_item">name</div>
+                <div class="box_info_item"></div>
+                <div th:text="${product.price}" class="box_info_item">0<span>₽</span></div>
+                <div class="box_info_item">
+                    <div sec:authorize="isAuthenticated()">
+                        <a th:href="@{/products/{id}/{category_1}/buckettwo(id=${product.id}, category_1=${product.category})}">
+                            <div class="price_icon"></div>
+                        </a>
+                    </div>
+                    <div sec:authorize="!isAuthenticated()" class="arrange">
+                        <a th:href="@{/login}">Авторизоваться</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="character">
+        <div class="character_box">
+            <div class="text">Характеристики</div>
+            <div class="info_box">
+                <div th:text="${product.description}" class="box">Описание</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:insert="~{fragments/header_1 :: #footer-main}"></div>
+</body>
+</html>

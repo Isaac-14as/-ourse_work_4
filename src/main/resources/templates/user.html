@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/static/css/header_footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/static/css/entry_st.css">
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+</head>
+<body>
+<div th:insert="~{fragments/header_1 :: #header-container}"></div>
+<div class="re_1" th:insert="~{fragments/header_1 :: #header-bottom}"></div>
+<!--<div th:insert="~{fragments/menu :: #nav-menu}"></div>-->
+<form th:action="@{/users/new}" th:object="${user}" method="post">
+    <div class="main">
+        <div class="box">
+            <div class="right">
+                <div class="text">Регистрация</div>
+                <div class="subtext" >Ваше имя</div>
+                <input class="in_box" type="text" th:field="*{username}"onfocus="this.value=''" value="Дмитрий">
+                <div class="subtext">Email</div>
+                <input class="in_box" type="email" th:field="*{email}" onfocus="this.value=''" value="elan.dmitriy@gmail.com">
+                <div class="subtext">Пароль</div>
+                <input class="in_box subbox" type="password" th:field="*{password}"  onfocus="this.value=''"value="Придумайте пароль">
+                <div class="subtext">Минимум 6 символов</div>
+                <div class="subtext subtext_2">Повторите пароль</div>
+                <input class="in_box subbox" type="password" th:field="*{matchingPassword}" onfocus="this.value=''"value="">
+                <button class="subbox" type="submit">Зарегистрироваться</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div th:insert="~{fragments/header_1 :: #footer-main}"></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/static/css/header_footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/static/css/entry_st.css">
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+<div th:insert="~{fragments/header_1 :: #header-container}"></div>
+<div class="re_1" th:insert="~{fragments/header_1 :: #header-bottom}"></div>
+
+<form th:action="@{/users/profile}" th:object="${user}" method="post">
+    <div class="main">
+        <div class="box">
+            <div class="right">
+                <div class="text">Ваш профиль</div>
+                <div class="subtext">Ваше имя</div>
+                <input class="in_box" type="text" th:field="*{username}">
+                <div class="subtext">Email</div>
+                <input class="in_box" type="email" th:field="*{email}">
+                <div class="subtext">Изменить пароль</div>
+                <input class="in_box subbox" type="password" th:field="*{password}">
+                <div class="subtext">Минимум 6 символов</div>
+                <div class="subtext subtext_2">Повторите пароль</div>
+                <input class="in_box subbox" type="password" th:field="*{matchingPassword}">
+                <button class="subbox" type="submit">Сохранить изменения</button>
+                <div class="subtext subtext_7"><a th:href="@{/logout}">Выйти из аккаунта</a></div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div th:insert="~{fragments/header_1 :: #footer-main}"></div>
+</body>
+</html>

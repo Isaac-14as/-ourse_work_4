@@ -1,0 +1,148 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    margin-top: 30px;
+    max-width: 500px;
+    width: 70%;
+    height: 500px;
+    display: flex;
+    background-color: rgba(221, 253, 255, 0.4);
+}
+
+.left {
+    width: 100%;
+}
+
+.left button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 2px solid blue;
+    border-radius: 10px;
+    width: 150px;
+    height: 35px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 0.3s;
+}
+
+.left button:hover {
+    color: white;
+    background-color: blue;
+    transition: 0.3s;
+}
+
+.in_box {
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    color: #636363;
+}
+
+.right {
+    width: 100%;
+}
+
+.text {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.subtext {
+    display: flex;
+    justify-content: center;
+}
+
+.subtext:nth-child(7) {
+    margin-top: 20px;
+}
+
+.subtext_1 {
+    color: red;
+}
+
+.subtext_2 {
+    margin-top: 20px;
+}
+
+.right button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 2px solid blue;
+    border-radius: 10px;
+    min-width: 255px;
+    width: 60%;
+    height: 35px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+.right button:hover {
+    color: white;
+    background-color: blue;
+    transition: 0.3s;
+}
+
+.sub {
+    margin-bottom: 30px;
+}
+
+.subbox {
+    margin-bottom: 4px;
+}
+
+.subtext_7 {
+    margin-top: 20px;
+}
+
+@media (max-width: 1080px) {
+    .box {
+        width: 90%;
+    }
+}
+
+@media (max-width: 720px) {
+    .box {
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+
+    .box .left {
+        border: none;
+        margin: 0 auto;
+        padding-bottom: 30px;
+        border-bottom-width: 3px;
+        border-bottom-style: dashed;
+        border-bottom-color: blue;
+    }
+
+    .box .right {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 550px) {
+    .in_box {
+        width: 120px;
+    }
+
+    .right button {
+        min-width: 150px;
+    }
+}

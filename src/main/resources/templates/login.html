@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/static/css/header_footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/static/css/entry_st.css">
+    <meta charset="UTF-8">
+    <title>Login page</title>
+</head>
+<body>
+<div th:insert="~{fragments/header_1 :: #header-container}"></div>
+<div class="re_1" th:insert="~{fragments/header_1 :: #header-bottom}"></div>
+
+<form th:action="@{/auth}" method="post">
+    <div class="main">
+        <div class="box">
+            <div class="left">
+                <div class="text">Вход</div>
+                <div class="subtext">Имя пользователя</div>
+                <input class="in_box" type="text" name="username" onfocus="this.value=''" value="Dmitriy">
+                <div class="subtext">Пароль</div>
+                <input class="in_box" type="password" name="password" onfocus="this.value=''" value="************">
+                <button type="submit">Войти</button>
+                <div class="subtext subtext_1"><p th:if="${loginError}" class="error">Неправильное имя пользователя или
+                    пароль</p></div>
+                <div class="subtext"><a th:href="@{/users/new}">Создать новый аккаунт</a></div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div th:insert="~{fragments/header_1 :: #footer-main}"></div>
+</body>
+</html>
